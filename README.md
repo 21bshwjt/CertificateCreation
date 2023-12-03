@@ -23,6 +23,8 @@ _continue_ = "DNS=bshwjtfn.bshwjt.com&"
 _continue_ = "iPAddress=20.49.104.56"
 ```
 ### There exists a certificate template named 'azurecert,' and it is configured to have the capability of exporting the private key
+<img width="45" src="https://github.com/21bshwjt/CertificateCreation/blob/main/screenshots/tmpl.png?raw=true">
+                     
 ```powershell
 certreq -new request.inf request.req
 certreq -attrib "CertificateTemplate:azurecert" -submit request.req request.cer
