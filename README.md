@@ -21,3 +21,8 @@ RequestType = CMC
 _continue_ = "DNS=bshwjtfn.bshwjt.com&"
 _continue_ = "iPAddress=20.49.104.56"
 ```
+
+```powershell
+certreq -new request.inf request.req
+certreq -attrib "CertificateTemplate:azurecert" -submit request.req request.cer
+```
