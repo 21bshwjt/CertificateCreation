@@ -24,7 +24,7 @@ _continue_ = "iPAddress=20.49.104.56"
 ```
 ### There exists a certificate template named 'azurecert,' and it is configured to have the capability of exporting the private key
 <img width="450" src="https://github.com/21bshwjt/CertificateCreation/blob/main/screenshots/tmpl.png?raw=true">
-- Above Template cloned from '**Web Server**' Template.
+##### Above Template was cloned from the '**Web Server**' Template.
                      
 ```powershell
 certreq -new request.inf request.req
