@@ -1,5 +1,6 @@
 # Manual Certificate Creation - Active Directory Certificate Service
 
+### 'request.inf' includes the necessary configurations for the certificate request
 ```powershell
 [Version]
 Signature="$Windows NT$"
@@ -21,7 +22,7 @@ RequestType = CMC
 _continue_ = "DNS=bshwjtfn.bshwjt.com&"
 _continue_ = "iPAddress=20.49.104.56"
 ```
-
+### There exists a certificate template named 'azurecert,' and it is configured to have the capability of exporting the private key
 ```powershell
 certreq -new request.inf request.req
 certreq -attrib "CertificateTemplate:azurecert" -submit request.req request.cer
