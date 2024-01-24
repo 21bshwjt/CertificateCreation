@@ -31,3 +31,32 @@ _continue_ = "iPAddress=20.49.104.56"
 certreq -new request.inf request.req
 certreq -attrib "CertificateTemplate:azurecert" -submit request.req request.cer
 ```
+
+### Sample multiple SAN - Not tested 
+```powershell
+[Version]
+
+Signature="$Windows NT$"
+
+[NewRequest]
+Subject = "CN=name.contoso.com,O=CSR Demo,OU=IT,L=Brussels,S=Brussels,E=certificates@contoso.com,C=BE"
+
+;EncipherOnly = FALSE
+Exportable = TRUE   ; TRUE = Private key is exportable
+KeyLength = 2048     ; Valid key sizes: 1024, 2048, 4096, 8192, 16384
+KeySpec = 1          ; Key Exchange – Required for encryption
+KeyUsage = 0xA0      ; Digital Signature, Key Encipherment
+MachineKeySet = True
+ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+
+RequestType = PKCS10 ; or CMC.
+
+[EnhancedKeyUsageExtension]
+OID=1.3.6.1.5.5.7.3.1 ; Server Authentication
+;OID=1.3.6.1.5.5.7.3.2 ; Client Authentication  // Uncomment if you need a mutual TLS authentication
+
+[Extensions]
+2.5.29.17 = "{text}"
+_continue_ = "dns=name.contoso.com&"
+_continue_ = "dns=othername.contoso.com"
+```
